@@ -73,15 +73,54 @@ class LineItemsController < ApplicationController
     end
   end
 
+
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
     @line_item = LineItem.find(params[:id])
-    @line_item.destroy
-
+    @cart = current_cart
+    #@cart.add_product(@line_item.product.id)
+     product = Product.find(@line_item.product.id)
+    @cart.add_product(product.id)
+    #@line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url }
-      format.json { head :ok }
+      if @line_item.save
+        format.html { redirect_to @line_item.cart }
+        format.js {@current_item=@line_item}
+        format.json { render json: @line_item, status: :created, location: @line_item }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+      end
     end
+    #respond_to do |format|
+    #  format.html { redirect_to @line_item.cart }
+    #    format.js {@current_item=@line_item}
+    #  format.json { head :ok }
+    #end
   end
+
+
+  def decrement
+      @cart = current_cart
+       @line_item = LineItem.find(params[:id])
+      @line_item = @cart.delete_product(@line_item.product.id)
+      if @line_item.quantity <= 0
+          @line_item.destroy
+      else
+        @line_item.save
+      end
+
+      respond_to do |format|
+        #if @line_item.save
+          format.html { redirect_to @line_item.cart }
+          format.js {@current_item=@line_item}
+          format.json { render json: @line_item, status: :created, location: @line_item }
+        #else
+        #  format.html { render action: "new" }
+        #  format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        #end
+      end
+    end
+
 end
