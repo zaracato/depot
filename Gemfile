@@ -32,3 +32,5 @@ group :test do
   gem 'minitest'
   gem 'turn', :require => false
 end
+
+gem 'will_paginate', '~> 3.0'

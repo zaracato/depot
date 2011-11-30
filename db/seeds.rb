@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Order.delete_all
+LineItem.delete_all
 Product.delete_all
 
 Product.create(
@@ -18,3 +20,7 @@ you should add Ruby to your toolbox.
 image_url: 'ruby.jpg',
 price: 49.95
 )
+PaymentType.delete_all
+PaymentType.create(:name => "Check")
+PaymentType.create(:name => "Credit card")
+PaymentType.create(:name => "Purchase order")
