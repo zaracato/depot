@@ -47,7 +47,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart }
+        format.html { redirect_to store_path} #@line_item.cart }
         format.js {@current_item=@line_item}
         format.json { render json: @line_item, status: :created, location: @line_item }
       else
@@ -78,26 +78,17 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     @line_item = LineItem.find(params[:id])
-    @cart = current_cart
+    #@cart = current_cart
     #@cart.add_product(@line_item.product.id)
-     product = Product.find(@line_item.product.id)
-    @cart.add_product(product.id)
-    #@line_item.destroy
+    # product = Product.find(@line_item.product.id)
+    #@cart.add_product(product.id)
+    @line_item.destroy
+
     respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to @line_item.cart }
+      format.html { redirect_to @line_item.cart }
         format.js {@current_item=@line_item}
-        format.json { render json: @line_item, status: :created, location: @line_item }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
+      format.json { head :ok }
     end
-    #respond_to do |format|
-    #  format.html { redirect_to @line_item.cart }
-    #    format.js {@current_item=@line_item}
-    #  format.json { head :ok }
-    #end
   end
 
 
