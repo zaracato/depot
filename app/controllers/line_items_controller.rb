@@ -85,8 +85,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to @line_item.cart }
-        format.js {@current_item=@line_item}
+      format.html { redirect_to @line_item, notice: 'the line was successfully updated.' }
       format.json { head :ok }
     end
   end

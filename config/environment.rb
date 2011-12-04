@@ -9,14 +9,11 @@ Depot::Application.configure do
   config.action_mailer.smtp_settings ={
       address: "stmp.gmail.com",
       port: 587,
-      domain: "domain.of.sender.net",
+      domain: "engranedigital.com",
       authentication: "plain",
-      user_name: "zaracato",
+      user_name: "zaracato@gmail.com",
       password: "Gr1ll1t0",
       enable_starttls_auto: true
-
-
-
   }
 end
 
