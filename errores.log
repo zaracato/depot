@@ -1,0 +1,92 @@
+LOADED SUITE test,test/unit,test/unit/helpers,test/functional,test/performance
+ActionController::TestCase
+ActionDispatch::IntegrationTest
+ActionView::TestCase
+ActiveRecord::TestCase
+ActiveSupport::TestCase
+CartTest
+CartsHelperTest
+LineItemTest
+LineItemsHelperTest
+MiniTest::Spec
+OrderTest
+OrdersHelperTest
+PaymentTypeTest
+ProductTest
+     test_image_url                                                       PASS
+     test_product_attributes_must_not_be_empty                            PASS
+     test_product_is_not_vaild_without_a_unique_title                     PASS
+     test_product_is_not_valid_without_a_unique_title_-_i18n              PASS
+     test_product_price_must_be_positive                                  PASS
+     test_product_title_length                                            PASS
+ProductsHelperTest
+StoreHelperTest
+Test::Unit::TestCase
+==============================================================================
+  pass: 6,  fail: 0,  error: 0
+  total: 6 tests with 25 assertions in 0.36177338 seconds
+==============================================================================
+LOADED SUITE test,test/unit,test/unit/helpers,test/functional,test/performance
+ActionController::TestCase
+ActionDispatch::IntegrationTest
+ActionMailer::TestCase
+ActiveRecord::TestCase
+ActiveSupport::TestCase
+CartsControllerTest
+     test_should_create_cart                                              PASS
+     test_should_destroy_cart                                             PASS
+     test_should_get_edit                                                 PASS
+     test_should_get_index                                                PASS
+     test_should_get_new                                                  PASS
+     test_should_show_cart                                                PASS
+     test_should_update_cart                                              PASS
+LineItemsControllerTest
+     test_should_create_line_item                                         PASS
+     test_should_create_line_item_via_ajax                                PASS
+     test_should_destroy_line_item                                        PASS
+     test_should_get_edit                                                 PASS
+     test_should_get_index                                                PASS
+     test_should_get_new                                                  PASS
+     test_should_show_line_item                                           FAIL
+        Expected response to be a redirect to <http://test.host/carts/980190963> but was a redirect to <http://test.host/>
+        Assertion at /home/zaracato/.rvm/gems/ruby-1.9.3-head/gems/actionpack-3.1.0/lib/action_dispatch/testing/assertions/response.rb:67:in `assert_redirected_to'
+     test_should_update_line_item                                         PASS
+MiniTest::Spec
+OrderNotifierTest
+     test_received                                                        FAIL
+        Expected /1 x Programming Ruby 1.9/ to match "Dear Dave Thomas\r\n\r\nThank you for your recent order from the Pragmatic Store.\r\nYou ordered the following items:\r\n\r\n\r\nWe'll send you a separate e-mail when your order ships.".
+        Assertion at test/functional/order_notifier_test.rb:9:in `block in <class:OrderNotifierTest>'
+     test_shipped                                                         FAIL
+        Expected /<td>1&times;<\/td>\s*<td>Programming Ruby 1.9<\/td>/ to match "\r\n\r\n----==_mimepart_4edbd4cc34d7c_10c64aa18521092b\r\nDate: Sun, 04 Dec 2011 14:15:08 -0600\r\nMime-Version: 1.0\r\nContent-Type: text/plain;\r\n charset=UTF-8\r\nContent-Transfer-Encoding: 7bit\r\nContent-ID: <4edbd4cc383c2_10c64aa18521104d@ubuntu.mail>\r\n\r\nOrderNotifier#shipped\r\n\r\n, find me in app/views/app/views/order_notifier/shipped.text.erb\r\n\r\n\r\n----==_mimepart_4edbd4cc34d7c_10c64aa18521092b\r\nDate: Sun, 04 Dec 2011 14:15:08 -0600\r\nMime-Version: 1.0\r\nContent-Type: text/html;\r\n charset=UTF-8\r\nContent-Transfer-Encoding: 7bit\r\nContent-ID: <4edbd4cc39fb8_10c64aa185211128@ubuntu.mail>\r\n\r\n<h3>Pragmatic Order Shipped</h3>\r\n<p>\r\nThis is just to let you know that we've shipped your recent order:\r\n</p>\r\n<table>\r\n<tr><th colspan=\"2\">Qty</th><th>Description</th></tr>\r\n\r\n</table>\r\n\r\n\r\n----==_mimepart_4edbd4cc34d7c_10c64aa18521092b--\r\n".
+        Assertion at test/functional/order_notifier_test.rb:17:in `block in <class:OrderNotifierTest>'
+OrdersControllerTest
+     test_requires_item_in_cart                                           PASS
+     test_should_create_order                                             FAIL
+        "Order.count" didn't change by 1.
+        <3> expected but was
+        <2>.
+        Assertion at /home/zaracato/.rvm/gems/ruby-1.9.3-head/gems/activesupport-3.1.0/lib/active_support/testing/assertions.rb:60:in `block in assert_difference'
+     test_should_destroy_order                                            PASS
+     test_should_get_edit                                                 PASS
+     test_should_get_index                                                PASS
+     test_should_get_new                                                  PASS
+     test_should_show_order                                               PASS
+     test_should_update_order                                             FAIL
+        Expected response to be a <:redirect>, but was <200>
+        Assertion at /home/zaracato/.rvm/gems/ruby-1.9.3-head/gems/actionpack-3.1.0/lib/action_dispatch/testing/assertions/response.rb:38:in `assert_response'
+ProductsControllerTest
+     test_should_create_product                                           PASS
+     test_should_destroy_product                                          PASS
+     test_should_get_edit                                                 PASS
+     test_should_get_index                                                PASS
+     test_should_get_new                                                  PASS
+     test_should_show_product                                             PASS
+     test_should_update_product                                           PASS
+StoreControllerTest
+     test_markup_needed_for_store.js.coffe_is_in_place                    PASS
+     test_should_get_index                                                PASS
+Test::Unit::TestCase
+==============================================================================
+  pass: 29,  fail: 5,  error: 0
+  total: 34 tests with 60 assertions in 1.24381648 seconds
+==============================================================================
